@@ -1,54 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Definicion de Alcance – Proyecto X</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Definición de Alcance – Proyecto X</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    h1, h2 { color: #0366d6; }
-    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
-    th, td { border: 1px solid #ddd; padding: .5rem; text-align: left; }
-    th { background: #f6f8fa; }
+    :root {
+      --primary-color: #0366d6;
+      --bg-color: #f4f6f8;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --border-color: #e1e4e8;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Contenedor tipo tarjeta */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+
+    h2 {
+      color: #2c3e50;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    p, li {
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style-type: none; /* Quitamos los puntos por defecto */
+      padding-left: 0;
+    }
+
+    li {
+      padding: 0.5rem;
+      border-radius: 4px;
+      background-color: #fafbfc;
+      margin-bottom: 5px;
+      border: 1px solid transparent;
+    }
+
+    /* Estilos específicos para Alcance */
+    .in-scope li {
+      border-left: 4px solid #28a745;
+    }
+    .out-scope li {
+      border-left: 4px solid #dc3545;
+      color: #666;
+    }
+
+    /* Iconos */
+    .icon {
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    /* Tabla */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 6px;
+      overflow: hidden; /* Para que los bordes redondeados funcionen en la tabla */
+      box-shadow: 0 0 0 1px var(--border-color);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f6f8fa;
+      color: #24292e;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tr:not(:last-child) td {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafbfc;
+    }
   </style>
 </head>
 <body>
-  <h1>Proyecto: Sistema de Gestion de Inventario – Tienda X</h1>
 
-  <h2>1. Objetivo general (SMART)</h2>
-  <p>Reducir el desfase de inventario del 8 % actual a = 2 % anual.</p>
+  <div class="container">
+    <h1>Proyecto: Sistema de Gestión de Inventario – Tienda X</h1>
 
-  <h2>2. Objetivos especificos</h2>
-  <ul>
-    <li>OE1: «Tiempos de respuesta = 1 s» (indicador: avg_latency, meta: 1 s, fecha: 30/09/2025)</li>
-  </ul>
+    <h2>1. Objetivo general (SMART)</h2>
+    <p>Reducir el desfase de inventario del <strong>8%</strong> actual a <strong>≤ 2%</strong> anual.</p>
 
-  <h2>3. Alcance</h2>
-  <h3>3.1 In-Scope</h3>
-  <ul>
-    <li>? CRUD de productos</li>
-    <li>? Alertas de stock mínimo</li>
-  </ul>
+    <h2>2. Objetivos específicos</h2>
+    <ul>
+      <li>🎯 <strong>OE1:</strong> «Tiempos de respuesta ≤ 1 s» <br>
+        <span style="font-size: 0.9em; color: #666; margin-left: 28px;">(Indicador: <code>avg_latency</code>, Meta: 1s, Fecha: 30/09/2025)</span>
+      </li>
+    </ul>
 
-  <h3>3.2 Out-of-Scope</h3>
-  <ul>
-    <li>? Facturacion electronica</li>
-    <li>? App movil nativa</li>
-  </ul>
+    <h2>3. Alcance</h2>
+    
+    <h3>3.1 In-Scope (Dentro del alcance)</h3>
+    <ul class="in-scope">
+      <li><span class="icon">✅</span> CRUD de productos</li>
+      <li><span class="icon">✅</span> Alertas de stock mínimo</li>
+    </ul>
 
-  <h3>3.3 Criterios de aceptacion</h3>
-  <ul>
-    <li>CA1: Tiempo de respuesta = 1 s</li>
-    <li>CA2: Disponibilidad 99 % en horario comercial</li>
-  </ul>
+    <h3>3.2 Out-of-Scope (Fuera del alcance)</h3>
+    <ul class="out-scope">
+      <li><span class="icon">❌</span> Facturación electrónica</li>
+      <li><span class="icon">❌</span> App móvil nativa</li>
+    </ul>
 
-  <h2>4. Restricciones</h2>
-  <table>
-    <tr><th>Parametro</th><th>Valor</th></tr>
-    <tr><td>Presupuesto</td><td>30 000 USD</td></tr>
-    <tr><td>Duracion</td><td>6 meses</td></tr>
-    <tr><td>Stack</td><td>PostgreSQL, Node.js, React</td></tr>
-    <tr><td>Normativas</td><td>Proteccion de datos local</td></tr>
-  </table>
+    <h3>3.3 Criterios de aceptación</h3>
+    <ul>
+      <li>🔹 <strong>CA1:</strong> Tiempo de respuesta ≤ 1 s</li>
+      <li>🔹 <strong>CA2:</strong> Disponibilidad 99% en horario comercial</li>
+    </ul>
+
+    <h2>4. Restricciones</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Parámetro</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Presupuesto</td>
+          <td>30,000 USD</td>
+        </tr>
+        <tr>
+          <td>Duración</td>
+          <td>6 meses</td>
+        </tr>
+        <tr>
+          <td>Stack Tecnológico</td>
+          <td>PostgreSQL, Node.js, React</td>
+        </tr>
+        <tr>
+          <td>Normativas</td>
+          <td>Protección de datos local</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
 </body>
 
 </html>
+
